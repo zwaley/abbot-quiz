@@ -892,8 +892,12 @@
         }
         
         function showQRCode(url) {
-            showToast('💡 提示：请复制链接后在微信中分享给朋友！');
-            copyToClipboard(url);
+            const resultTitle = document.getElementById('resultTitle').textContent;
+            const resultEmoji = document.getElementById('resultEmoji').textContent;
+            const wechatShareText = `${resultEmoji} 哈哈！我刚测了个超搞笑的游戏"你适合做方丈吗？"\n\n我的结果是：${resultTitle}\n\n这个测试太有意思了，快来试试你能当什么方丈！😂\n\n${url}`;
+            
+            showToast('💡 已复制分享内容到剪贴板，去微信粘贴分享给朋友吧！');
+            copyToClipboard(wechatShareText);
         }
     </script>
 </body>
